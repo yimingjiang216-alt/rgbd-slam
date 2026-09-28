@@ -1,7 +1,7 @@
 ﻿# RGB-D 视觉里程计 / 回环检测 / 位姿图优化
 
-手写实现的 RGB-D SLAM 管线,在 TUM FR1 公开数据集上跑。不依赖 g2o / Ceres / GTSAM
-等优化库,李群运算、光束法平差、位姿图优化都是自己实现的。
+RGB-D SLAM 管线,在 TUM FR1 公开数据集上评测。不依赖 g2o / Ceres / GTSAM 等
+优化库:李群运算、光束法平差、位姿图优化、回环检测均在项目内自行实现。
 
 用到的数据集:TUM RGB-D Benchmark,`fr1/xyz`(798 帧)与 `fr1/desk`(613 帧)。
 数据不随仓库提供,请从 https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download 下载。
@@ -21,7 +21,7 @@
 | + 离线 BA(事后优化) | 0.0510 m | 变差 | — |
 | + 在线局部 BA | **0.0449 m** | **0.56%** | 10.961 m |
 
-用 evo 独立验证,与手写指标完全一致(ATE RMSE 4.4919 cm;旋转 APE RMSE 5.61°,
+用 evo 独立验证,与项目内实现的指标完全一致(ATE RMSE 4.4919 cm;旋转 APE RMSE 5.61°,
 RPE(δ=1) RMSE 0.64°)。
 
 **关键结论:BA 必须放在跟踪环内(在线),不能做事后优化。**
