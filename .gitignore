@@ -1,0 +1,20 @@
+﻿# 数据(请从 TUM 官网下载,不随仓库提供)
+data/
+*.bag
+*.db3
+*.npz
+*.png
+*.jpg
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
