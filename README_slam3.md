@@ -184,3 +184,77 @@ fr1/xyz 的真值轨迹只在一个 0.41 m 的小框里打转（总路程 8.011 
    得到的是两团点云最佳匹配的比值，不是轨迹的尺度误差，
    两者不能混为一谈。用偏移后的轨迹去算相似变换尺度，会得到
    0.0012 这种明显荒谬的值，这正是不能那么算的证据。
+
+
+## 回环失效修复记录 (2026-10-01)
+
+### 问题
+
+v3.0 在 fr1/xyz 上, 回环+位姿图使 ATE 从 0.0449 m 恶化到 0.1975 m (+339.7%),
+旋转中位误差从 2.24° 恶化到 17.22°. 121 条回环边以固定 3× 旋转权重入图,
+而它们的重访基线中位数只有 0.119 m —— 短基线下 PnP 旋转不可观测.
+
+### 归因过程 (三层假设, 逐层排除, 全部留档 results/fix_*.txt)
+
+| 假设 | 做法 | 结果 | 结论 |
+|---|---|---|---|
+| 权重过高, 按基线降权即可 | 旋转权重随基线线性缩放 | ATE 0.1978 m | 无效: 120 条坏边降到 1× 后仍以 120:55 压过里程计 |
+| 旋转不可信就只留平移 | 中等基线边旋转权重置 0 | ATE 0.1685 m, 旋转 78° | 更糟: SE(3) 残差里平移旋转耦合, 带错旋转的测量其平移分量同样不可信 |
+| 这批测量根本不可用 | 证据脚本逐对量化 (analysis/loop_error_vs_baseline.py) | 145 对中仅 3 对旋转胜过里程计; 平移误差 0.07→0.6 m 随基线增长, 全程输给里程计的 0.06-0.09 m | fr1/xyz 的重访测量在任何基线段都不可用 |
+
+### 修复策略 (slam3.py `loop_rot_weight` + `build_graph`)
+
+- **基线门控**: 基线 < 0.30 m (LOOP_BASE_REF) 的回环边整条拒绝;
+  < 0.05 m (MIN_LOOP_BASELINE) 视为零视差硬拒绝.
+  拒绝而非降权 —— 上述两个阴性结果证明了降权和 translation-only 都不行.
+- **保守接受** (`--max_loop_edges N`): 长漂移序列上只让内点数最强的 N 条边入图.
+- **检测器参数化** (`--max_dist/--min_gap/--min_inliers/--agree_trans/--agree_rot`):
+  候选窗口与几何验证容差必须随序列漂移量放大 (room 的教训, 见下).
+- 0 回环时 build_graph 不再崩溃 (修复 stats 空字典 KeyError).
+
+**fr1/xyz 验证**: 121 条边全部被门控拒绝, ATE = 0.0450 m (与纯里程计持平,
++0.1% 数值噪声). 0.1975 m 的恶化在构造上不再可能.
+
+### fr1/room 实验: 换有真实重访的序列检验
+
+fr1/xyz 轨迹挤在 0.70 m 盒子里, 天生无法检验回环价值 (见上文). 因此下载
+TUM fr1/room (1362 帧, 路径 10 m+, 里程计漂移 0.3447 m) 重做实验:
+
+1. **检测失效诊断** (analysis/room_loop_diagnosis.py, room_stage_counts.py):
+   默认参数下 0 回环. 逐级计数定位: 2762 个真值重访对中, 漂移把估计距离推过
+   0.6 m 候选窗口; 视角变化 40-88° 削薄 ORB 匹配; 几何验证容差 0.35 m 小于
+   漂移本身 0.34 m, 把 209 个通过 PnP 的候选全部误杀 —— 验证容差必须大于
+   它要纠正的漂移.
+2. **放宽后**: 131 对回环通过验证; 但接受全部 41 条质量达标的边, ATE 反而
+   +39.6% (PnP 旋转误差 40-86°: 大视角变化下 ORB 匹配的 3D-2D 对应失真,
+   且全局地图带 0.3+ m 漂移).
+3. **保守接受**: 只取内点数最强的 top-10 边, **ATE 0.3447 → 0.3089 m
+   (-10.4%)**, 旋转中位 19.8° → 18.5°. 首次得到回环正收益.
+
+### 已知局限
+
+- PnP 对漂移全局地图的测量在大视角变化下不可信 (旋转误差 40-86°),
+  根治需要子图相对配准 (局部 submap ICP) 或 DBoW2 式词袋 place recognition
+  + 局部 BA —— 属后续工作.
+- top-K 的 K 目前是超参 (room 上 10 最优, 5/20 亦优于基线);
+  更原则化的做法是按测量一致性聚类后取共识.
+
+### 复现
+
+```bash
+# xyz (门控拒绝全部短基线边, 无回退)
+python slam2.py front <xyz_dir> && python slam2.py lba <xyz_dir>
+python slam3.py detect <xyz_dir>
+python slam3.py graph <xyz_dir> && python slam3.py eval <xyz_dir>
+# 期望: "+loopclosure ATE=0.0450", "121 declined"
+
+# room (漂移感知检测 + 保守接受)
+python slam2.py front <room_dir> && python slam2.py lba <room_dir>
+python slam3.py detect <room_dir> --max_dist 1.2 --min_inliers 15 --agree_trans 1.2 --agree_rot 80
+python slam3.py graph <room_dir> --max_loop_edges 10
+python slam3.py eval <room_dir>
+# 期望: ATE 0.3447 -> 0.3089 m
+
+# 单元测试
+python test_loop_gating.py
+```

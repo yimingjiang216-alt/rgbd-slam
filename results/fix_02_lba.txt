@@ -1,0 +1,14 @@
+[2] 局部 BA (滚动, 点参与优化)
+  帧=798 点=134031 观测=459443 关键帧=56
+  lba  5 kf  82 frames=6 pts=1017 obs=2034 nfev=60 reproj 0.36->0.28 px  ATE=0.0449
+  lba 10 kf 176 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.35->0.28 px  ATE=0.0449
+  lba 15 kf 213 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.77->0.26 px  ATE=0.0449
+  lba 20 kf 279 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.32->0.26 px  ATE=0.0449
+  lba 25 kf 303 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.29->0.26 px  ATE=0.0449
+  lba 30 kf 340 frames=11 pts=1200 obs=2400 nfev=60 reproj 1.36->0.26 px  ATE=0.0449
+  lba 35 kf 400 frames=11 pts=1200 obs=2400 nfev=60 reproj 1.11->0.27 px  ATE=0.0449
+  lba 40 kf 422 frames=11 pts=1200 obs=2400 nfev=60 reproj 1.09->0.27 px  ATE=0.0449
+  lba 45 kf 449 frames=11 pts=979 obs=1958 nfev=36 reproj 1.02->0.27 px  ATE=0.0449
+  lba 50 kf 621 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.66->0.28 px  ATE=0.0449
+  lba 55 kf 723 frames=11 pts=1200 obs=2400 nfev=60 reproj 1.32->0.28 px  ATE=0.0449
+  优化次数=55  最终ATE=0.0449 m

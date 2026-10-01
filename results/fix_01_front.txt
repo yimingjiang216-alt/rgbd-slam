@@ -1,0 +1,10 @@
+[1] 前端 + 建图
+  kf0: 2472 points
+  f 100 kf=8 pts=20618 obs=106 inl=117
+  f 200 kf=14 pts=35220 obs=155 inl=167
+  f 300 kf=24 pts=59197 obs=121 inl=125
+  f 400 kf=36 pts=88106 obs=143 inl=148
+  f 500 kf=48 pts=112728 obs=685 inl=799
+  f 600 kf=50 pts=118139 obs=403 inl=456
+  f 700 kf=54 pts=128488 obs=164 inl=168
+  关键帧=56 点=134031 观测=459443

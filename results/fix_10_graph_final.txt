@@ -1,0 +1,4 @@
+[2] pose graph: 56 nodes, 55 odometry edges, 0 loop edges (121 declined: baseline < 0.30 m)
+    no loop edges accepted -- the graph is odometry only
+    it  0  chi2=    0.0000  worst=  0.0000  step=9.138e-16
+    odom residual after : mean 0.0000  max 0.0000

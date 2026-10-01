@@ -1,0 +1,147 @@
+[1] loop detection on 56 keyframes (map_v2.npz)
+  loop  287 <->    0  inliers= 92 ratio=0.38 reproj=1.38 px  cand_dist=0.15 m
+  loop  290 <->   16  inliers=224 ratio=0.54 reproj=1.17 px  cand_dist=0.07 m
+  loop  290 <->    0  inliers=187 ratio=0.50 reproj=1.22 px  cand_dist=0.14 m
+  loop  296 <->   16  inliers= 67 ratio=0.50 reproj=1.10 px  cand_dist=0.15 m
+  loop  296 <->    0  inliers= 55 ratio=0.43 reproj=1.25 px  cand_dist=0.20 m
+  loop  296 <->   33  inliers= 49 ratio=0.42 reproj=1.20 px  cand_dist=0.27 m
+  loop  340 <->   56  inliers=199 ratio=0.56 reproj=1.14 px  cand_dist=0.07 m
+  loop  340 <->  100  inliers=199 ratio=0.57 reproj=1.11 px  cand_dist=0.08 m
+  loop  340 <->  150  inliers=167 ratio=0.52 reproj=1.22 px  cand_dist=0.09 m
+  loop  340 <->   16  inliers=216 ratio=0.66 reproj=1.19 px  cand_dist=0.09 m
+  loop  340 <->  113  inliers=136 ratio=0.51 reproj=1.15 px  cand_dist=0.16 m
+  loop  340 <->   90  inliers= 54 ratio=0.37 reproj=1.11 px  cand_dist=0.18 m
+  loop  340 <->    0  inliers=177 ratio=0.58 reproj=0.95 px  cand_dist=0.18 m
+  loop  340 <->   75  inliers= 47 ratio=0.32 reproj=1.32 px  cand_dist=0.21 m
+  loop  340 <->   33  inliers=129 ratio=0.55 reproj=1.01 px  cand_dist=0.23 m
+  loop  340 <->   82  inliers= 88 ratio=0.56 reproj=1.01 px  cand_dist=0.25 m
+  loop  351 <->   16  inliers=259 ratio=0.66 reproj=1.08 px  cand_dist=0.09 m
+  loop  351 <->   56  inliers=313 ratio=0.59 reproj=1.06 px  cand_dist=0.11 m
+  loop  351 <->  150  inliers=461 ratio=0.66 reproj=1.00 px  cand_dist=0.11 m
+  loop  351 <->  100  inliers=413 ratio=0.61 reproj=1.03 px  cand_dist=0.11 m
+  loop  351 <->  113  inliers=146 ratio=0.53 reproj=1.31 px  cand_dist=0.18 m
+  loop  351 <->    0  inliers=293 ratio=0.64 reproj=1.06 px  cand_dist=0.20 m
+  loop  351 <->   33  inliers= 63 ratio=0.40 reproj=1.19 px  cand_dist=0.21 m
+  loop  351 <->  176  inliers= 61 ratio=0.39 reproj=1.26 px  cand_dist=0.21 m
+  loop  351 <->   90  inliers= 51 ratio=0.35 reproj=1.24 px  cand_dist=0.22 m
+  loop  396 <->  113  inliers= 35 ratio=0.39 reproj=1.09 px  cand_dist=0.23 m
+  loop  396 <->   33  inliers= 45 ratio=0.40 reproj=1.18 px  cand_dist=0.23 m
+  loop  400 <->   16  inliers=112 ratio=0.49 reproj=1.17 px  cand_dist=0.10 m
+  loop  400 <->   56  inliers=123 ratio=0.44 reproj=1.35 px  cand_dist=0.12 m
+  loop  400 <->  150  inliers=114 ratio=0.40 reproj=1.31 px  cand_dist=0.14 m
+  loop  400 <->  100  inliers=128 ratio=0.43 reproj=1.21 px  cand_dist=0.14 m
+  loop  400 <->  113  inliers= 60 ratio=0.40 reproj=1.08 px  cand_dist=0.16 m
+  loop  400 <->   33  inliers= 43 ratio=0.39 reproj=1.19 px  cand_dist=0.17 m
+  loop  404 <->   16  inliers=333 ratio=0.60 reproj=1.10 px  cand_dist=0.05 m
+  loop  404 <->   56  inliers=372 ratio=0.57 reproj=1.12 px  cand_dist=0.07 m
+  loop  404 <->  150  inliers=292 ratio=0.52 reproj=1.10 px  cand_dist=0.10 m
+  loop  404 <->  100  inliers=287 ratio=0.51 reproj=1.15 px  cand_dist=0.11 m
+  loop  404 <->  113  inliers=149 ratio=0.46 reproj=1.34 px  cand_dist=0.12 m
+  loop  404 <->   33  inliers=163 ratio=0.49 reproj=1.06 px  cand_dist=0.16 m
+  loop  409 <->   56  inliers= 79 ratio=0.34 reproj=1.19 px  cand_dist=0.07 m
+  loop  409 <->   16  inliers= 94 ratio=0.43 reproj=1.04 px  cand_dist=0.08 m
+  loop  409 <->  100  inliers= 72 ratio=0.34 reproj=1.20 px  cand_dist=0.11 m
+  loop  409 <->  150  inliers= 49 ratio=0.26 reproj=1.33 px  cand_dist=0.11 m
+  loop  409 <->  113  inliers= 98 ratio=0.40 reproj=1.29 px  cand_dist=0.11 m
+  loop  409 <->  176  inliers=182 ratio=0.47 reproj=1.12 px  cand_dist=0.14 m
+  loop  409 <->  183  inliers= 70 ratio=0.41 reproj=1.27 px  cand_dist=0.15 m
+  loop  409 <->   33  inliers= 75 ratio=0.40 reproj=1.24 px  cand_dist=0.18 m
+  loop  409 <->  215  inliers= 46 ratio=0.37 reproj=1.18 px  cand_dist=0.21 m
+  loop  409 <->  190  inliers= 29 ratio=0.33 reproj=1.39 px  cand_dist=0.22 m
+  loop  409 <->  213  inliers= 32 ratio=0.39 reproj=1.06 px  cand_dist=0.23 m
+  loop  415 <->  190  inliers= 72 ratio=0.36 reproj=1.32 px  cand_dist=0.14 m
+  loop  415 <->  213  inliers= 79 ratio=0.34 reproj=1.16 px  cand_dist=0.16 m
+  loop  437 <->  190  inliers= 69 ratio=0.31 reproj=1.06 px  cand_dist=0.13 m
+  loop  437 <->  194  inliers= 59 ratio=0.33 reproj=1.05 px  cand_dist=0.17 m
+  loop  440 <->  220  inliers= 65 ratio=0.31 reproj=1.09 px  cand_dist=0.11 m
+  loop  440 <->  215  inliers=101 ratio=0.40 reproj=0.96 px  cand_dist=0.15 m
+  loop  440 <->  190  inliers= 46 ratio=0.25 reproj=1.09 px  cand_dist=0.15 m
+  loop  440 <->  213  inliers= 47 ratio=0.28 reproj=1.03 px  cand_dist=0.17 m
+  loop  444 <->   16  inliers= 56 ratio=0.44 reproj=1.22 px  cand_dist=0.06 m
+  loop  444 <->   56  inliers= 52 ratio=0.39 reproj=1.36 px  cand_dist=0.07 m
+  loop  444 <->  287  inliers= 52 ratio=0.31 reproj=1.29 px  cand_dist=0.08 m
+  loop  444 <->  290  inliers=114 ratio=0.39 reproj=1.18 px  cand_dist=0.08 m
+  loop  444 <->  296  inliers=211 ratio=0.34 reproj=1.24 px  cand_dist=0.10 m
+  loop  444 <->  100  inliers= 33 ratio=0.31 reproj=1.30 px  cand_dist=0.11 m
+  loop  444 <->  113  inliers= 45 ratio=0.32 reproj=1.08 px  cand_dist=0.11 m
+  loop  444 <->  150  inliers= 27 ratio=0.30 reproj=1.27 px  cand_dist=0.11 m
+  loop  444 <->  231  inliers= 57 ratio=0.33 reproj=1.34 px  cand_dist=0.11 m
+  loop  444 <->  176  inliers= 95 ratio=0.33 reproj=1.32 px  cand_dist=0.14 m
+  loop  444 <->  220  inliers= 72 ratio=0.28 reproj=1.09 px  cand_dist=0.15 m
+  loop  444 <->  183  inliers= 42 ratio=0.29 reproj=1.13 px  cand_dist=0.16 m
+  loop  444 <->   33  inliers= 51 ratio=0.37 reproj=1.39 px  cand_dist=0.17 m
+  loop  444 <->  190  inliers= 25 ratio=0.26 reproj=1.11 px  cand_dist=0.23 m
+  loop  449 <->   16  inliers=238 ratio=0.56 reproj=1.24 px  cand_dist=0.02 m
+  loop  449 <->  287  inliers=148 ratio=0.32 reproj=1.29 px  cand_dist=0.06 m
+  loop  449 <->   56  inliers=200 ratio=0.44 reproj=1.27 px  cand_dist=0.07 m
+  loop  449 <->  290  inliers=348 ratio=0.44 reproj=1.17 px  cand_dist=0.08 m
+  loop  449 <->  100  inliers=201 ratio=0.48 reproj=1.14 px  cand_dist=0.10 m
+  loop  449 <->  150  inliers=179 ratio=0.41 reproj=1.29 px  cand_dist=0.10 m
+  loop  449 <->  113  inliers=124 ratio=0.45 reproj=1.27 px  cand_dist=0.11 m
+  loop  449 <->  231  inliers=392 ratio=0.53 reproj=1.02 px  cand_dist=0.11 m
+  loop  449 <->  279  inliers=118 ratio=0.33 reproj=1.20 px  cand_dist=0.12 m
+  loop  449 <->  296  inliers= 75 ratio=0.32 reproj=1.27 px  cand_dist=0.15 m
+  loop  449 <->   33  inliers=181 ratio=0.53 reproj=1.15 px  cand_dist=0.15 m
+  loop  449 <->  176  inliers=138 ratio=0.46 reproj=1.17 px  cand_dist=0.17 m
+  loop  449 <->  246  inliers= 79 ratio=0.32 reproj=1.13 px  cand_dist=0.18 m
+  loop  449 <->  220  inliers= 49 ratio=0.40 reproj=1.33 px  cand_dist=0.20 m
+  loop  459 <->   16  inliers=480 ratio=0.77 reproj=0.89 px  cand_dist=0.05 m
+  loop  459 <->   56  inliers=493 ratio=0.70 reproj=1.04 px  cand_dist=0.09 m
+  loop  459 <->  287  inliers= 75 ratio=0.27 reproj=1.19 px  cand_dist=0.10 m
+  loop  459 <->  279  inliers= 70 ratio=0.28 reproj=1.33 px  cand_dist=0.11 m
+  loop  459 <->  113  inliers=232 ratio=0.60 reproj=1.22 px  cand_dist=0.11 m
+  loop  459 <->  150  inliers=557 ratio=0.70 reproj=0.94 px  cand_dist=0.12 m
+  loop  459 <->  290  inliers=141 ratio=0.38 reproj=1.25 px  cand_dist=0.12 m
+  loop  459 <->  100  inliers=484 ratio=0.68 reproj=0.99 px  cand_dist=0.12 m
+  loop  459 <->   33  inliers=179 ratio=0.56 reproj=1.27 px  cand_dist=0.14 m
+  loop  459 <->  231  inliers=247 ratio=0.49 reproj=1.22 px  cand_dist=0.15 m
+  loop  459 <->  246  inliers=102 ratio=0.35 reproj=1.21 px  cand_dist=0.15 m
+  loop  459 <->  296  inliers= 35 ratio=0.31 reproj=1.31 px  cand_dist=0.20 m
+  loop  519 <->   16  inliers=378 ratio=0.72 reproj=0.99 px  cand_dist=0.05 m
+  loop  519 <->  279  inliers= 87 ratio=0.29 reproj=1.26 px  cand_dist=0.08 m
+  loop  519 <->  287  inliers= 81 ratio=0.29 reproj=1.33 px  cand_dist=0.08 m
+  loop  519 <->   56  inliers=346 ratio=0.63 reproj=1.02 px  cand_dist=0.09 m
+  loop  519 <->  150  inliers=355 ratio=0.59 reproj=0.87 px  cand_dist=0.11 m
+  loop  519 <->  290  inliers=112 ratio=0.37 reproj=1.16 px  cand_dist=0.11 m
+  loop  519 <->  100  inliers=373 ratio=0.62 reproj=1.04 px  cand_dist=0.11 m
+  loop  519 <->  231  inliers=258 ratio=0.48 reproj=1.18 px  cand_dist=0.13 m
+  loop  519 <->  246  inliers=116 ratio=0.36 reproj=1.20 px  cand_dist=0.13 m
+  loop  519 <->  113  inliers=166 ratio=0.61 reproj=1.16 px  cand_dist=0.14 m
+  loop  519 <->   33  inliers=159 ratio=0.62 reproj=1.16 px  cand_dist=0.16 m
+  loop  519 <->  176  inliers= 59 ratio=0.43 reproj=1.13 px  cand_dist=0.19 m
+  loop  519 <->  296  inliers= 28 ratio=0.31 reproj=1.13 px  cand_dist=0.20 m
+  loop  621 <->  279  inliers= 75 ratio=0.24 reproj=1.37 px  cand_dist=0.06 m
+  loop  621 <->   16  inliers=218 ratio=0.62 reproj=1.07 px  cand_dist=0.08 m
+  loop  621 <->  287  inliers= 55 ratio=0.22 reproj=1.27 px  cand_dist=0.10 m
+  loop  621 <->  246  inliers=112 ratio=0.38 reproj=1.18 px  cand_dist=0.11 m
+  loop  621 <->   56  inliers=222 ratio=0.53 reproj=1.05 px  cand_dist=0.11 m
+  loop  621 <->  150  inliers=278 ratio=0.56 reproj=1.01 px  cand_dist=0.12 m
+  loop  621 <->  100  inliers=267 ratio=0.56 reproj=1.09 px  cand_dist=0.12 m
+  loop  621 <->  290  inliers= 90 ratio=0.36 reproj=1.11 px  cand_dist=0.12 m
+  loop  621 <->  231  inliers=169 ratio=0.41 reproj=1.29 px  cand_dist=0.14 m
+  loop  621 <->  113  inliers=106 ratio=0.52 reproj=1.22 px  cand_dist=0.16 m
+  loop  621 <->   33  inliers=123 ratio=0.52 reproj=1.28 px  cand_dist=0.18 m
+  loop  669 <->   16  inliers= 97 ratio=0.56 reproj=1.19 px  cand_dist=0.08 m
+  loop  669 <->  351  inliers=139 ratio=0.53 reproj=1.17 px  cand_dist=0.09 m
+  loop  669 <->  279  inliers= 27 ratio=0.20 reproj=1.54 px  cand_dist=0.10 m
+  loop  669 <->  290  inliers= 39 ratio=0.33 reproj=1.32 px  cand_dist=0.12 m
+  loop  669 <->   56  inliers=118 ratio=0.53 reproj=1.07 px  cand_dist=0.13 m
+  loop  669 <->  100  inliers=124 ratio=0.56 reproj=1.16 px  cand_dist=0.13 m
+  loop  669 <->  150  inliers=143 ratio=0.59 reproj=0.98 px  cand_dist=0.14 m
+  loop  669 <->  246  inliers= 42 ratio=0.29 reproj=1.13 px  cand_dist=0.14 m
+  loop  669 <->  113  inliers= 47 ratio=0.48 reproj=1.19 px  cand_dist=0.15 m
+  loop  669 <->   33  inliers= 90 ratio=0.47 reproj=1.20 px  cand_dist=0.16 m
+  loop  681 <->  351  inliers=478 ratio=0.65 reproj=1.09 px  cand_dist=0.09 m
+  loop  681 <->   16  inliers=405 ratio=0.69 reproj=1.08 px  cand_dist=0.10 m
+  loop  681 <->   56  inliers=614 ratio=0.70 reproj=1.03 px  cand_dist=0.11 m
+  loop  681 <->  113  inliers=193 ratio=0.57 reproj=1.26 px  cand_dist=0.13 m
+  loop  681 <->  279  inliers= 81 ratio=0.28 reproj=1.04 px  cand_dist=0.14 m
+  loop  681 <->  150  inliers=553 ratio=0.67 reproj=1.04 px  cand_dist=0.14 m
+  loop  681 <->  100  inliers=529 ratio=0.66 reproj=1.02 px  cand_dist=0.15 m
+  loop  681 <->   33  inliers=167 ratio=0.50 reproj=1.18 px  cand_dist=0.17 m
+  loop  723 <->   16  inliers=310 ratio=0.64 reproj=1.08 px  cand_dist=0.11 m
+  loop  723 <->  113  inliers=190 ratio=0.55 reproj=1.29 px  cand_dist=0.11 m
+  loop  723 <->   56  inliers=405 ratio=0.58 reproj=1.17 px  cand_dist=0.12 m
+  loop  723 <->   33  inliers=149 ratio=0.55 reproj=1.24 px  cand_dist=0.14 m
+  loop  723 <->  394  inliers= 61 ratio=0.28 reproj=1.12 px  cand_dist=0.17 m
+    145 verified loop closures

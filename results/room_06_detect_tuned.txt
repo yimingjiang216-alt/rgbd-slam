@@ -1,0 +1,2 @@
+[1] loop detection on 255 keyframes (map_v2.npz)
+    0 verified loop closures

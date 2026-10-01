@@ -1,0 +1,10 @@
+[2] pose graph: 255 nodes, 254 odometry edges, 0 loop edges (0 full-SE(3), 0 translation-only, 0 gated out by baseline < 0.05 m)
+Traceback (most recent call last):
+  File "C:\Users\蒋惊人\Downloads\新建文件夹 (5)\gh_repos\rgbd-slam\slam3.py", line 358, in <module>
+    main()
+  File "C:\Users\蒋惊人\Downloads\新建文件夹 (5)\gh_repos\rgbd-slam\slam3.py", line 352, in main
+    build_graph(seq)
+  File "C:\Users\蒋惊人\Downloads\新建文件夹 (5)\gh_repos\rgbd-slam\slam3.py", line 235, in build_graph
+    % (s["mean"], s["max"], s["n"]), flush=True)
+       ~^^^^^^^^
+KeyError: 'mean'

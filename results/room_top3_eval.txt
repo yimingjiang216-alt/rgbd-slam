@@ -1,0 +1,6 @@
+[3] evaluation
+    VO            ATE=0.3447 m (mean 0.3032 max 0.6765)  rot med 19.81 deg
+    VO+localBA    ATE=0.3447 m (mean 0.3031 max 0.6764)  rot med 19.81 deg
+    +loopclosure  ATE=0.3955 m (mean 0.3551 max 0.9411)  rot med 21.78 deg
+    ATE: 0.3447 -> 0.3955  (+14.7%)
+    figure: traj_v3.png

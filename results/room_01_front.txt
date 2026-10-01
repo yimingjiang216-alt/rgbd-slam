@@ -1,0 +1,16 @@
+[1] 前端 + 建图
+  kf0: 2303 points
+  f 100 kf=19 pts=30546 obs=171 inl=174
+  f 200 kf=44 pts=74319 obs=81 inl=86
+  f 300 kf=67 pts=114655 obs=138 inl=144
+  f 400 kf=82 pts=140336 obs=496 inl=609
+  f 500 kf=97 pts=167096 obs=133 inl=145
+  f 600 kf=117 pts=192426 obs=481 inl=487
+  f 700 kf=132 pts=225322 obs=527 inl=560
+  f 800 kf=149 pts=260388 obs=429 inl=446
+  f 900 kf=177 pts=289748 obs=125 inl=135
+  f1000 kf=191 pts=318616 obs=254 inl=256
+  f1100 kf=213 pts=352081 obs=224 inl=234
+  f1200 kf=236 pts=397777 obs=214 inl=236
+  f1300 kf=252 pts=430793 obs=279 inl=286
+  关键帧=255 点=438993 观测=899070

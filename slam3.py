@@ -48,6 +48,45 @@ K = np.array([[517.3, 0.0, 318.6], [0.0, 516.5, 255.3], [0.0, 0.0, 1.0]])
 # degrees away for millimetres, which is the wrong trade for a camera.
 ROT_WEIGHT = 3.0
 
+# Loop-edge acceptance, driven by measured evidence on two sequences:
+#
+# fr1/xyz (drift 0.045 m, revisit baselines 0.02-0.31 m): flat 3x rotation
+#   trust on all loops turned ATE 0.0449 into 0.1975 m.  Per-loop GT errors
+#   (analysis/loop_error_vs_baseline.py) show the PnP measurement loses to
+#   odometry at EVERY baseline (rotation: only 3/145 beat VO; translation
+#   error grows to 0.6 m with baseline).
+# fr1/room (drift 0.34 m, 40-88 deg viewpoint change): even with drift-aware
+#   detection, PnP rotation errors run 40-86 deg (analysis/
+#   room_error_vs_baseline -> loop_error_vs_baseline_out.txt) and accepting
+#   all 41 quality-passing edges degraded ATE +39.6%.
+#
+# Two lessons became policy:
+#   1. a relative-pose translation is expressed in the measurement's own
+#      rotation frame, so a loop with an untrustworthy rotation is unusable
+#      as translation-only too (measured: xyz mid-baseline edges as
+#      translation-only gave ATE 0.1685 m and 78 deg rotation).  Below
+#      LOOP_BASE_REF the edge is declined outright, not down-weighted.
+#   2. on long-drift sequences the strongest edges (PnP inlier count) can
+#      still carry real signal: fr1/room with only the top-10 inlier edges
+#      improved ATE 0.3447 -> 0.3089 m (-10.4%) while all 41 degraded it.
+#      max_loop_edges in build_graph implements that conservative mode.
+MIN_LOOP_BASELINE = 0.05   # m, no parallax at all -- hard reject
+LOOP_BASE_REF = 0.30       # m, below this the edge is declined outright
+
+
+def loop_rot_weight(baseline, base_ref=LOOP_BASE_REF, full=ROT_WEIGHT,
+                    min_baseline=MIN_LOOP_BASELINE):
+    """Rotation trust (weight) for a loop edge given its baseline in metres.
+
+    Returns full ROT_WEIGHT only above the reference baseline; below it the
+    edge must be declined outright (the caller drops it).  Recorded negative
+    results that shaped this: linear baseline scaling (ATE 0.1978 m on xyz)
+    and translation-only mid-baseline edges (ATE 0.1685 m, 78 deg rotation).
+    """
+    if baseline < min_baseline or baseline < base_ref:
+        return 0.0
+    return full
+
 
 def read_rgb_names(seq):
     out = []
@@ -82,8 +121,25 @@ def se3_align(src, dst):
 # ------------------------------------------------------------------ detection
 
 
-def detect(seq=SEQ, verbose=True):
-    """Run loop detection on the v2 map and cache the constraints."""
+def detect(seq=SEQ, verbose=True, max_dist=0.6, min_gap=20, min_inliers=25,
+           agree_trans=0.35, agree_rot=35.0):
+    """Run loop detection on the v2 map and cache the constraints.
+
+    max_dist    candidate search radius in the *estimated* pose (m).  The
+                default 0.6 fits fr1/xyz (drift 0.045 m); on longer sequences
+                the drift alone pushes true revisits apart in the estimate
+                (fr1/room: drift 0.34 m), so widen it there -- geometric
+                verification still gates what gets accepted.
+    min_inliers PnP RANSAC inlier floor.  Viewpoint change across a revisit
+                thins the ORB matches (fr1/room revisits turn 40-88 deg), so
+                longer sequences need a lower floor than xyz's 25.
+    agree_trans/agree_rot  geometric-verification tolerance between the PnP
+                measurement and the odometry prediction.  CAUTION: the loop
+                exists to *correct* odometry drift, so this tolerance must
+                exceed the drift itself -- on fr1/room (drift 0.34 m) the
+                default 0.35 m killed every true loop (analysis/
+                room_stage_counts.py: 209 PnP-survivors, 0 accepted).
+    """
     # map_v2.npz is the file whose poses, xyz and obs belong together: the
     # points were back-projected with exactly those poses.  map_v2_ba.npz
     # carries the *refined* poses but reuses the old xyz, so the two are no
@@ -110,7 +166,11 @@ def detect(seq=SEQ, verbose=True):
 
     poses = {k: poses_arr[k] for k in kf}
     print("[1] loop detection on %d keyframes (%s)" % (len(kf), base), flush=True)
-    loops = ld.detect_loops(kf, poses, gray, xyz, obs, verbose=verbose)
+    loops = ld.detect_loops(kf, poses, gray, xyz, obs, verbose=verbose,
+                            max_dist=max_dist, min_gap=min_gap,
+                            min_inliers=min_inliers,
+                            agree_trans=agree_trans,
+                            agree_rot_deg=agree_rot)
     print("    %d verified loop closures" % len(loops), flush=True)
 
     np.savez(os.path.join(seq, "loops.npz"),
@@ -120,14 +180,15 @@ def detect(seq=SEQ, verbose=True):
              T_wc=np.array([l["T_wc_meas"] for l in loops], np.float64),
              inliers=np.array([l["inliers"] for l in loops], int),
              ratio=np.array([l["inlier_ratio"] for l in loops], np.float64),
-             reproj=np.array([l["reproj"] for l in loops], np.float64))
+             reproj=np.array([l["reproj"] for l in loops], np.float64),
+             base=np.array([l["cand_dist"] for l in loops], np.float64))
     return loops
 
 # ---------------------------------------------------------------- pose graph
 
 
 def build_graph(seq=SEQ, min_inliers=40, min_ratio=0.30, max_reproj=1.6,
-                verbose=True):
+                max_loop_edges=0, verbose=True):
     """Turn keyframe poses + loop constraints into a pose graph and optimise.
 
     The graph nodes are the keyframes (not all 798 frames): a keyframe every
@@ -156,30 +217,62 @@ def build_graph(seq=SEQ, min_inliers=40, min_ratio=0.30, max_reproj=1.6,
         g.add_edge(kf[a], kf[a + 1], Z, weight=1.0, kind="odom")
 
     keep = (linl >= min_inliers) & (lrat >= min_ratio) & (lrep <= max_reproj)
+    # conservative acceptance: when loop measurements are of uncertain quality
+    # (drifted map), allow only the strongest few edges, ranked by PnP inlier
+    # count.  max_loop_edges=0 keeps every edge that passes the quality filter.
+    idx_all = [t for t in range(len(li)) if keep[t]]
+    if max_loop_edges and len(idx_all) > max_loop_edges:
+        idx_all.sort(key=lambda t: (-int(linl[t]), float(lrep[t])))
+        keep = np.array([False] * len(li))
+        for t in idx_all[:max_loop_edges]:
+            keep[t] = True
     n_add = 0
+    n_gate = 0
     for t in range(len(li)):
         if not keep[t]:
             continue
+        # the loop's baseline under the current (VO) estimate: what parallax
+        # the PnP rotation actually had.  No ground truth needed at runtime.
+        base_t = float(np.linalg.norm(poses_arr[li[t]][:3, 3]
+                                      - poses_arr[lj[t]][:3, 3]))
+        if base_t < MIN_LOOP_BASELINE:
+            n_gate += 1
+            continue
         # a loop edge is one measurement, so it must not out-vote the chain of
         # odometry edges that spans the same motion; weight 1.0 keeps it a peer.
+        # rotation trust follows the evidence in loop_rot_weight: an edge
+        # without enough parallax is declined outright -- as a down-weighted
+        # rotation it corrupts the graph (xyz: 0.1978 m), as translation-only
+        # it is worse (xyz: 0.1685 m and 78 deg rotation).
+        rw = loop_rot_weight(base_t)
+        if rw <= 0.0:
+            n_gate += 1
+            continue
         g.add_edge(int(li[t]), int(lj[t]), LT[t], weight=1.0,
-                   kind="loop", rot_weight=ROT_WEIGHT)
+                   kind="loop", rot_weight=rw)
         n_add += 1
 
     if verbose:
         print("[2] pose graph: %d nodes, %d odometry edges, %d loop edges"
-              % (len(g.ids), g.n_edges("odom"), n_add), flush=True)
+              " (%d declined: baseline < %.2f m)"
+              % (len(g.ids), g.n_edges("odom"), n_add, n_gate,
+                 LOOP_BASE_REF), flush=True)
         s = g.stats("loop")
-        print("    loop residual before: mean %.4f  max %.4f  (n=%d)"
-              % (s["mean"], s["max"], s["n"]), flush=True)
+        if s["n"]:
+            print("    loop residual before: mean %.4f  max %.4f  (n=%d)"
+                  % (s["mean"], s["max"], s["n"]), flush=True)
+        else:
+            print("    no loop edges accepted -- the graph is odometry only",
+                  flush=True)
 
     hist = g.optimize(iterations=200, damping=1e-8, huber=0.20,
                       fix_first=True, verbose=verbose)
 
     if verbose:
         s = g.stats("loop")
-        print("    loop residual after : mean %.4f  max %.4f"
-              % (s["mean"], s["max"]), flush=True)
+        if s["n"]:
+            print("    loop residual after : mean %.4f  max %.4f"
+                  % (s["mean"], s["max"]), flush=True)
         s = g.stats("odom")
         print("    odom residual after : mean %.4f  max %.4f"
               % (s["mean"], s["max"]), flush=True)
@@ -283,14 +376,34 @@ def q2R(q):
 
 
 def main():
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
-    seq = sys.argv[2] if len(sys.argv) > 2 else SEQ
-    if cmd in ("detect", "all"):
-        detect(seq)
-    if cmd in ("graph", "all"):
-        build_graph(seq)
-    if cmd in ("eval", "all"):
-        evaluate(seq)
+    import argparse
+    p = argparse.ArgumentParser(description="RGB-D SLAM v3: loop closure + pose graph")
+    p.add_argument("cmd", nargs="?", default="all",
+                   choices=["detect", "graph", "eval", "all"])
+    p.add_argument("seq", nargs="?", default=SEQ)
+    p.add_argument("--max_dist", type=float, default=0.6,
+                   help="candidate search radius in the estimated pose (m)")
+    p.add_argument("--min_gap", type=int, default=20,
+                   help="min keyframe separation for a loop candidate")
+    p.add_argument("--min_inliers", type=int, default=25,
+                   help="PnP RANSAC inlier floor")
+    p.add_argument("--agree_trans", type=float, default=0.35,
+                   help="verification tolerance vs odometry, translation (m);"
+                        " must exceed the drift the loop should correct")
+    p.add_argument("--agree_rot", type=float, default=35.0,
+                   help="verification tolerance vs odometry, rotation (deg)")
+    p.add_argument("--max_loop_edges", type=int, default=0,
+                   help="keep only the N strongest loop edges (by inliers);"
+                        " 0 = keep all that pass the quality filter")
+    a = p.parse_args()
+    if a.cmd in ("detect", "all"):
+        detect(a.seq, max_dist=a.max_dist, min_gap=a.min_gap,
+               min_inliers=a.min_inliers,
+               agree_trans=a.agree_trans, agree_rot=a.agree_rot)
+    if a.cmd in ("graph", "all"):
+        build_graph(a.seq, max_loop_edges=a.max_loop_edges)
+    if a.cmd in ("eval", "all"):
+        evaluate(a.seq)
 
 
 if __name__ == "__main__":

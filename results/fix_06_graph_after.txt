@@ -1,0 +1,52 @@
+[2] pose graph: 56 nodes, 55 odometry edges, 120 loop edges (1 gated out by baseline < 0.05 m)
+    loop residual before: mean 0.3535  max 0.6871  (n=120)
+    it  0  chi2=   16.3179  worst=  0.6871  step=2.547e+00
+    it  1  chi2=    2.8686  worst=  0.4189  step=4.961e-01
+    it  2  chi2=    2.3723  worst=  0.4525  step=1.845e-01
+    it  3  chi2=    2.3677  worst=  0.4539  step=8.073e-02
+    it  4  chi2=    2.3946  worst=  0.4551  step=3.827e-02
+    it  5  chi2=    2.4143  worst=  0.4584  step=1.908e-02
+    it  6  chi2=    2.4260  worst=  0.4640  step=9.932e-03
+    it  7  chi2=    2.4326  worst=  0.4667  step=5.347e-03
+    it  8  chi2=    2.4362  worst=  0.4679  step=2.957e-03
+    it  9  chi2=    2.4382  worst=  0.4685  step=1.672e-03
+    it 10  chi2=    2.4393  worst=  0.4687  step=9.640e-04
+    it 11  chi2=    2.4399  worst=  0.4687  step=5.656e-04
+    it 12  chi2=    2.4402  worst=  0.4687  step=3.374e-04
+    it 13  chi2=    2.4404  worst=  0.4687  step=2.045e-04
+    it 14  chi2=    2.4405  worst=  0.4686  step=1.258e-04
+    it 15  chi2=    2.4405  worst=  0.4686  step=7.842e-05
+    it 16  chi2=    2.4406  worst=  0.4685  step=4.944e-05
+    it 17  chi2=    2.4406  worst=  0.4685  step=3.146e-05
+    it 18  chi2=    2.4406  worst=  0.4685  step=2.017e-05
+    it 19  chi2=    2.4406  worst=  0.4685  step=1.301e-05
+    it 20  chi2=    2.4406  worst=  0.4685  step=8.423e-06
+    it 21  chi2=    2.4406  worst=  0.4685  step=5.471e-06
+    it 22  chi2=    2.4406  worst=  0.4685  step=3.561e-06
+    it 23  chi2=    2.4406  worst=  0.4685  step=2.322e-06
+    it 24  chi2=    2.4406  worst=  0.4685  step=1.515e-06
+    it 25  chi2=    2.4406  worst=  0.4685  step=9.890e-07
+    it 26  chi2=    2.4406  worst=  0.4685  step=6.460e-07
+    it 27  chi2=    2.4406  worst=  0.4685  step=4.220e-07
+    it 28  chi2=    2.4406  worst=  0.4685  step=2.757e-07
+    it 29  chi2=    2.4406  worst=  0.4685  step=1.801e-07
+    it 30  chi2=    2.4406  worst=  0.4685  step=1.177e-07
+    it 31  chi2=    2.4406  worst=  0.4685  step=7.687e-08
+    it 32  chi2=    2.4406  worst=  0.4685  step=5.021e-08
+    it 33  chi2=    2.4406  worst=  0.4685  step=3.279e-08
+    it 34  chi2=    2.4406  worst=  0.4685  step=2.141e-08
+    it 35  chi2=    2.4406  worst=  0.4685  step=1.398e-08
+    it 36  chi2=    2.4406  worst=  0.4685  step=9.129e-09
+    it 37  chi2=    2.4406  worst=  0.4685  step=5.960e-09
+    it 38  chi2=    2.4406  worst=  0.4685  step=3.891e-09
+    it 39  chi2=    2.4406  worst=  0.4685  step=2.540e-09
+    it 40  chi2=    2.4406  worst=  0.4685  step=1.658e-09
+    it 41  chi2=    2.4406  worst=  0.4685  step=1.082e-09
+    it 42  chi2=    2.4406  worst=  0.4685  step=7.061e-10
+    it 43  chi2=    2.4406  worst=  0.4685  step=4.608e-10
+    it 44  chi2=    2.4406  worst=  0.4685  step=3.007e-10
+    it 45  chi2=    2.4406  worst=  0.4685  step=1.963e-10
+    it 46  chi2=    2.4406  worst=  0.4685  step=1.281e-10
+    it 47  chi2=    2.4406  worst=  0.4685  step=8.357e-11
+    loop residual after : mean 0.0440  max 0.1425
+    odom residual after : mean 0.1475  max 0.4685

@@ -1,0 +1,53 @@
+[2] 局部 BA (滚动, 点参与优化)
+  帧=1362 点=438993 观测=899070 关键帧=255
+  lba  5 kf  35 frames=6 pts=1053 obs=2106 nfev=49 reproj 0.27->0.27 px  ATE=0.3447
+  lba 10 kf  76 frames=11 pts=1200 obs=2400 nfev=29 reproj 0.29->0.29 px  ATE=0.3447
+  lba 15 kf  86 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.33->0.33 px  ATE=0.3447
+  lba 20 kf 104 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.30->0.28 px  ATE=0.3447
+  lba 25 kf 134 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.35->0.28 px  ATE=0.3447
+  lba 30 kf 162 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.43->0.29 px  ATE=0.3447
+  lba 35 kf 187 frames=11 pts=1200 obs=2400 nfev=19 reproj 0.50->0.39 px  ATE=0.3447
+  lba 40 kf 195 frames=11 pts=825 obs=1650 nfev=17 reproj 0.60->0.60 px  ATE=0.3447
+  lba 45 kf 202 frames=11 pts=789 obs=1578 nfev=17 reproj 0.57->0.57 px  ATE=0.3447
+  lba 50 kf 211 frames=11 pts=705 obs=1410 nfev=18 reproj 0.54->0.54 px  ATE=0.3447
+  lba 55 kf 224 frames=11 pts=698 obs=1396 nfev=17 reproj 0.51->0.50 px  ATE=0.3447
+  lba 60 kf 256 frames=11 pts=1200 obs=2400 nfev=19 reproj 0.44->0.43 px  ATE=0.3447
+  lba 65 kf 292 frames=11 pts=1200 obs=2400 nfev=16 reproj 0.49->0.48 px  ATE=0.3447
+  lba 70 kf 315 frames=11 pts=1200 obs=2400 nfev=17 reproj 0.62->0.61 px  ATE=0.3447
+  lba 75 kf 341 frames=11 pts=1147 obs=2294 nfev=17 reproj 0.45->0.45 px  ATE=0.3447
+  lba 80 kf 389 frames=11 pts=1122 obs=2244 nfev=28 reproj 0.32->0.31 px  ATE=0.3447
+  lba 85 kf 437 frames=11 pts=977 obs=1954 nfev=60 reproj 0.30->0.29 px  ATE=0.3447
+  lba 90 kf 466 frames=11 pts=1177 obs=2354 nfev=60 reproj 0.30->0.28 px  ATE=0.3447
+  lba 95 kf 493 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.39->0.30 px  ATE=0.3447
+  lba100 kf 532 frames=11 pts=1175 obs=2350 nfev=60 reproj 0.62->0.47 px  ATE=0.3447
+  lba105 kf 549 frames=11 pts=1044 obs=2088 nfev=17 reproj 0.55->0.55 px  ATE=0.3447
+  lba110 kf 563 frames=11 pts=800 obs=1600 nfev=17 reproj 0.62->0.62 px  ATE=0.3447
+  lba115 kf 592 frames=11 pts=1096 obs=2192 nfev=17 reproj 0.63->0.63 px  ATE=0.3447
+  lba120 kf 624 frames=11 pts=1200 obs=2400 nfev=17 reproj 0.63->0.63 px  ATE=0.3447
+  lba125 kf 663 frames=11 pts=1200 obs=2400 nfev=17 reproj 0.60->0.60 px  ATE=0.3447
+  lba130 kf 692 frames=11 pts=1200 obs=2400 nfev=17 reproj 0.63->0.63 px  ATE=0.3447
+  lba135 kf 726 frames=11 pts=1200 obs=2400 nfev=17 reproj 0.64->0.64 px  ATE=0.3447
+  lba140 kf 749 frames=11 pts=1200 obs=2400 nfev=16 reproj 0.64->0.64 px  ATE=0.3447
+  lba145 kf 782 frames=11 pts=1200 obs=2400 nfev=16 reproj 0.75->0.75 px  ATE=0.3447
+  lba150 kf 816 frames=11 pts=1126 obs=2252 nfev=17 reproj 0.73->0.73 px  ATE=0.3447
+  lba155 kf 830 frames=11 pts=956 obs=1912 nfev=17 reproj 0.56->0.56 px  ATE=0.3447
+  lba160 kf 848 frames=11 pts=733 obs=1466 nfev=18 reproj 0.55->0.55 px  ATE=0.3447
+  lba165 kf 858 frames=11 pts=896 obs=1792 nfev=18 reproj 0.55->0.55 px  ATE=0.3447
+  lba170 kf 871 frames=11 pts=1200 obs=2400 nfev=18 reproj 0.55->0.55 px  ATE=0.3447
+  lba175 kf 891 frames=11 pts=1200 obs=2400 nfev=18 reproj 0.56->0.56 px  ATE=0.3447
+  lba180 kf 922 frames=11 pts=1017 obs=2034 nfev=16 reproj 0.41->0.39 px  ATE=0.3447
+  lba185 kf 973 frames=11 pts=1200 obs=2400 nfev=25 reproj 0.30->0.28 px  ATE=0.3447
+  lba190 kf 998 frames=11 pts=1160 obs=2320 nfev=60 reproj 0.29->0.28 px  ATE=0.3447
+  lba195 kf1027 frames=11 pts=1177 obs=2354 nfev=60 reproj 0.42->0.33 px  ATE=0.3447
+  lba200 kf1041 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.40->0.35 px  ATE=0.3447
+  lba205 kf1052 frames=11 pts=959 obs=1918 nfev=60 reproj 0.37->0.37 px  ATE=0.3447
+  lba210 kf1066 frames=11 pts=822 obs=1644 nfev=60 reproj 0.37->0.33 px  ATE=0.3447
+  lba215 kf1117 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.97->0.29 px  ATE=0.3447
+  lba220 kf1152 frames=11 pts=1200 obs=2400 nfev=45 reproj 0.72->0.28 px  ATE=0.3447
+  lba225 kf1181 frames=11 pts=1200 obs=2400 nfev=60 reproj 1.70->0.31 px  ATE=0.3447
+  lba230 kf1188 frames=11 pts=1200 obs=2400 nfev=60 reproj 1.62->0.28 px  ATE=0.3447
+  lba235 kf1199 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.53->0.32 px  ATE=0.3447
+  lba240 kf1212 frames=11 pts=792 obs=1584 nfev=33 reproj 0.45->0.44 px  ATE=0.3447
+  lba245 kf1234 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.32->0.31 px  ATE=0.3447
+  lba250 kf1268 frames=11 pts=1200 obs=2400 nfev=60 reproj 0.66->0.29 px  ATE=0.3447
+  优化次数=254  最终ATE=0.3447 m

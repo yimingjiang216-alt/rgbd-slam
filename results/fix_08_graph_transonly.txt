@@ -1,0 +1,204 @@
+[2] pose graph: 56 nodes, 55 odometry edges, 120 loop edges (0 full-SE(3), 120 translation-only, 1 gated out by baseline < 0.05 m)
+    loop residual before: mean 0.3535  max 0.6871  (n=120)
+    it  0  chi2=   16.3179  worst=  0.6871  step=2.293e+00
+    it  1  chi2=    8.9657  worst=  0.5375  step=9.933e-01
+    it  2  chi2=   10.9745  worst=  0.6145  step=8.732e-01
+    it  3  chi2=   15.2965  worst=  0.7173  step=1.974e-01
+    it  4  chi2=   16.8204  worst=  0.7544  step=1.365e+00
+    it  5  chi2=   12.1023  worst=  0.6699  step=2.618e+00
+    it  6  chi2=    8.7935  worst=  0.4992  step=2.788e+00
+    it  7  chi2=   19.2619  worst=  0.8450  step=1.110e+00
+    it  8  chi2=   30.6566  worst=  0.9595  step=2.651e+00
+    it  9  chi2=   20.2862  worst=  0.6817  step=6.039e+00
+    it 10  chi2=   15.9889  worst=  0.5855  step=7.097e+00
+    it 11  chi2=   83.5040  worst=  1.4931  step=2.544e+00
+    it 12  chi2=  125.6735  worst=  1.8022  step=5.650e+00
+    it 13  chi2=   71.1630  worst=  1.3884  step=1.092e+01
+    it 14  chi2=   19.0859  worst=  0.8841  step=8.977e+00
+    it 15  chi2=  141.1556  worst=  1.9685  step=3.264e+00
+    it 16  chi2=  122.3444  worst=  1.7140  step=9.685e+00
+    it 17  chi2=   38.3164  worst=  0.9041  step=1.250e+01
+    it 18  chi2=  100.3018  worst=  1.6750  step=1.745e+00
+    it 19  chi2=   99.6624  worst=  1.6873  step=7.172e+00
+    it 20  chi2=   56.0436  worst=  1.2578  step=1.114e+01
+    it 21  chi2=   56.3411  worst=  1.1570  step=6.445e+00
+    it 22  chi2=  169.6759  worst=  1.9487  step=3.851e+00
+    it 23  chi2=  125.2387  worst=  1.6830  step=1.012e+01
+    it 24  chi2=   27.4898  worst=  0.7606  step=1.246e+01
+    it 25  chi2=  142.6684  worst=  1.9104  step=4.233e+00
+    it 26  chi2=  112.7995  worst=  1.8029  step=9.007e+00
+    it 27  chi2=   70.0875  worst=  1.1612  step=1.202e+01
+    it 28  chi2=   98.1245  worst=  1.4873  step=5.798e+00
+    it 29  chi2=   90.1320  worst=  1.7060  step=8.170e+00
+    it 30  chi2=   58.5783  worst=  1.1704  step=1.135e+01
+    it 31  chi2=   72.7430  worst=  1.4472  step=7.344e+00
+    it 32  chi2=  110.7911  worst=  1.8259  step=7.176e+00
+    it 33  chi2=  110.6524  worst=  1.4582  step=9.905e+00
+    it 34  chi2=   70.2032  worst=  1.2673  step=8.805e+00
+    it 35  chi2=   76.1504  worst=  1.5996  step=7.209e+00
+    it 36  chi2=   78.0854  worst=  1.4437  step=9.766e+00
+    it 37  chi2=   64.7139  worst=  1.3574  step=8.552e+00
+    it 38  chi2=   92.2616  worst=  1.6043  step=7.235e+00
+    it 39  chi2=  120.8280  worst=  1.5602  step=8.486e+00
+    it 40  chi2=   84.6642  worst=  1.3775  step=8.363e+00
+    it 41  chi2=   55.6542  worst=  1.3505  step=8.622e+00
+    it 42  chi2=   85.6912  worst=  1.4539  step=9.341e+00
+    it 43  chi2=   90.4307  worst=  1.5783  step=8.139e+00
+    it 44  chi2=   92.7015  worst=  1.5336  step=9.061e+00
+    it 45  chi2=  113.8548  worst=  1.5222  step=8.719e+00
+    it 46  chi2=   95.4798  worst=  1.4889  step=7.675e+00
+    it 47  chi2=   62.6786  worst=  1.3675  step=1.012e+01
+    it 48  chi2=   78.2430  worst=  1.3872  step=9.763e+00
+    it 49  chi2=  103.8256  worst=  1.7656  step=7.410e+00
+    it 50  chi2=   99.5421  worst=  1.5152  step=9.938e+00
+    it 51  chi2=   93.5728  worst=  1.4039  step=8.935e+00
+    it 52  chi2=   84.4630  worst=  1.5422  step=7.384e+00
+    it 53  chi2=   66.8625  worst=  1.4255  step=1.038e+01
+    it 54  chi2=   75.8667  worst=  1.3916  step=9.173e+00
+    it 55  chi2=   99.3483  worst=  1.7393  step=7.277e+00
+    it 56  chi2=  105.9264  worst=  1.4995  step=9.481e+00
+    it 57  chi2=   86.0709  worst=  1.3767  step=8.626e+00
+    it 58  chi2=   69.4700  worst=  1.4821  step=7.742e+00
+    it 59  chi2=   72.7451  worst=  1.4293  step=9.928e+00
+    it 60  chi2=   79.9590  worst=  1.4531  step=8.542e+00
+    it 61  chi2=   95.2226  worst=  1.6523  step=7.838e+00
+    it 62  chi2=  111.5468  worst=  1.4956  step=9.091e+00
+    it 63  chi2=   88.8711  worst=  1.4131  step=8.108e+00
+    it 64  chi2=   63.4355  worst=  1.4193  step=8.667e+00
+    it 65  chi2=   75.9784  worst=  1.4002  step=9.906e+00
+    it 66  chi2=   90.0912  worst=  1.5935  step=7.924e+00
+    it 67  chi2=   97.3098  worst=  1.5960  step=8.866e+00
+    it 68  chi2=  108.9389  worst=  1.4830  step=9.054e+00
+    it 69  chi2=   89.9070  worst=  1.4514  step=7.609e+00
+    it 70  chi2=   64.7404  worst=  1.4159  step=9.722e+00
+    it 71  chi2=   77.0632  worst=  1.3766  step=9.888e+00
+    it 72  chi2=   98.4869  worst=  1.7231  step=7.415e+00
+    it 73  chi2=   99.3449  worst=  1.5345  step=9.666e+00
+    it 74  chi2=   98.1623  worst=  1.4297  step=8.931e+00
+    it 75  chi2=   84.0309  worst=  1.5118  step=7.456e+00
+    it 76  chi2=   66.2002  worst=  1.4245  step=1.030e+01
+    it 77  chi2=   78.0538  worst=  1.3998  step=9.293e+00
+    it 78  chi2=   99.4122  worst=  1.7420  step=7.353e+00
+    it 79  chi2=  103.9428  worst=  1.4976  step=9.600e+00
+    it 80  chi2=   88.3772  worst=  1.3903  step=8.625e+00
+    it 81  chi2=   72.3238  worst=  1.4972  step=7.722e+00
+    it 82  chi2=   70.5651  worst=  1.4214  step=1.008e+01
+    it 83  chi2=   79.9959  worst=  1.4497  step=8.588e+00
+    it 84  chi2=   96.5336  worst=  1.6735  step=7.772e+00
+    it 85  chi2=  110.1887  worst=  1.4848  step=9.203e+00
+    it 86  chi2=   87.8574  worst=  1.4044  step=8.170e+00
+    it 87  chi2=   64.7954  worst=  1.4371  step=8.499e+00
+    it 88  chi2=   75.3639  worst=  1.4023  step=9.931e+00
+    it 89  chi2=   87.7993  worst=  1.5689  step=8.003e+00
+    it 90  chi2=   97.0588  worst=  1.6064  step=8.685e+00
+    it 91  chi2=  109.9528  worst=  1.4886  step=9.054e+00
+    it 92  chi2=   89.4232  worst=  1.4440  step=7.674e+00
+    it 93  chi2=   64.3418  worst=  1.4155  step=9.560e+00
+    it 94  chi2=   77.2491  worst=  1.3802  step=9.906e+00
+    it 95  chi2=   97.2900  worst=  1.7076  step=7.483e+00
+    it 96  chi2=   99.0088  worst=  1.5414  step=9.591e+00
+    it 97  chi2=  100.4668  worst=  1.4417  step=8.942e+00
+    it 98  chi2=   85.4360  worst=  1.5057  step=7.474e+00
+    it 99  chi2=   65.8363  worst=  1.4218  step=1.028e+01
+    it100  chi2=   78.2597  worst=  1.3957  step=9.392e+00
+    it101  chi2=   99.8774  worst=  1.7475  step=7.350e+00
+    it102  chi2=  102.9147  worst=  1.4994  step=9.665e+00
+    it103  chi2=   89.0835  worst=  1.3924  step=8.668e+00
+    it104  chi2=   74.0199  worst=  1.5064  step=7.658e+00
+    it105  chi2=   69.6839  worst=  1.4214  step=1.013e+01
+    it106  chi2=   79.3869  worst=  1.4412  step=8.663e+00
+    it107  chi2=   96.9212  worst=  1.6846  step=7.686e+00
+    it108  chi2=  109.6285  worst=  1.4803  step=9.246e+00
+    it109  chi2=   87.4487  worst=  1.3996  step=8.240e+00
+    it110  chi2=   65.3669  worst=  1.4443  step=8.369e+00
+    it111  chi2=   75.0335  worst=  1.4063  step=9.928e+00
+    it112  chi2=   86.3603  worst=  1.5492  step=8.084e+00
+    it113  chi2=   96.7229  worst=  1.6139  step=8.544e+00
+    it114  chi2=  110.5784  worst=  1.4919  step=9.057e+00
+    it115  chi2=   89.4013  worst=  1.4398  step=7.729e+00
+    it116  chi2=   64.0850  worst=  1.4151  step=9.424e+00
+    it117  chi2=   77.1053  worst=  1.3821  step=9.926e+00
+    it118  chi2=   96.3147  worst=  1.6934  step=7.536e+00
+    it119  chi2=   98.7952  worst=  1.5493  step=9.510e+00
+    it120  chi2=  102.1518  worst=  1.4498  step=8.963e+00
+    it121  chi2=   86.4605  worst=  1.4978  step=7.481e+00
+    it122  chi2=   65.6489  worst=  1.4208  step=1.024e+01
+    it123  chi2=   78.2368  worst=  1.3895  step=9.487e+00
+    it124  chi2=  100.0390  worst=  1.7488  step=7.342e+00
+    it125  chi2=  102.0991  worst=  1.5027  step=9.705e+00
+    it126  chi2=   90.0022  worst=  1.3956  step=8.711e+00
+    it127  chi2=   75.5532  worst=  1.5121  step=7.605e+00
+    it128  chi2=   68.9266  worst=  1.4221  step=1.018e+01
+    it129  chi2=   78.9771  worst=  1.4341  step=8.744e+00
+    it130  chi2=   97.2685  worst=  1.6947  step=7.611e+00
+    it131  chi2=  108.9147  worst=  1.4752  step=9.294e+00
+    it132  chi2=   87.3228  worst=  1.3967  step=8.303e+00
+    it133  chi2=   66.1061  worst=  1.4519  step=8.253e+00
+    it134  chi2=   74.5221  worst=  1.4095  step=9.936e+00
+    it135  chi2=   85.1062  worst=  1.5314  step=8.159e+00
+    it136  chi2=   96.5189  worst=  1.6224  step=8.409e+00
+    it137  chi2=  110.9093  worst=  1.4932  step=9.069e+00
+    it138  chi2=   89.2392  worst=  1.4345  step=7.786e+00
+    it139  chi2=   63.9220  worst=  1.4161  step=9.282e+00
+    it140  chi2=   76.9059  worst=  1.3841  step=9.939e+00
+    it141  chi2=   95.1943  worst=  1.6772  step=7.594e+00
+    it142  chi2=   98.6109  worst=  1.5580  step=9.410e+00
+    it143  chi2=  103.7371  worst=  1.4574  step=8.983e+00
+    it144  chi2=   87.2740  worst=  1.4873  step=7.494e+00
+    it145  chi2=   65.4684  worst=  1.4198  step=1.018e+01
+    it146  chi2=   78.1931  worst=  1.3826  step=9.578e+00
+    it147  chi2=  100.0476  worst=  1.7469  step=7.341e+00
+    it148  chi2=  101.3633  worst=  1.5065  step=9.733e+00
+    it149  chi2=   91.1753  worst=  1.4002  step=8.753e+00
+    it150  chi2=   77.1655  worst=  1.5160  step=7.562e+00
+    it151  chi2=   68.1984  worst=  1.4224  step=1.022e+01
+    it152  chi2=   78.6914  worst=  1.4277  step=8.830e+00
+    it153  chi2=   97.6852  worst=  1.7051  step=7.545e+00
+    it154  chi2=  108.0964  worst=  1.4799  step=9.348e+00
+    it155  chi2=   87.2406  worst=  1.3940  step=8.365e+00
+    it156  chi2=   66.9894  worst=  1.4603  step=8.142e+00
+    it157  chi2=   73.9470  worst=  1.4124  step=9.949e+00
+    it158  chi2=   83.8774  worst=  1.5142  step=8.236e+00
+    it159  chi2=   96.3708  worst=  1.6311  step=8.276e+00
+    it160  chi2=  111.0983  worst=  1.4938  step=9.083e+00
+    it161  chi2=   88.9880  worst=  1.4284  step=7.849e+00
+    it162  chi2=   63.8062  worst=  1.4177  step=9.137e+00
+    it163  chi2=   76.7151  worst=  1.3867  step=9.944e+00
+    it164  chi2=   93.9729  worst=  1.6592  step=7.658e+00
+    it165  chi2=   98.4069  worst=  1.5669  step=9.297e+00
+    it166  chi2=  105.2271  worst=  1.4648  step=8.999e+00
+    it167  chi2=   87.9531  worst=  1.4748  step=7.512e+00
+    it168  chi2=   65.2728  worst=  1.4185  step=1.010e+01
+    it169  chi2=   78.1104  worst=  1.3811  step=9.660e+00
+    it170  chi2=   99.9242  worst=  1.7421  step=7.347e+00
+    it171  chi2=  100.7209  worst=  1.5109  step=9.748e+00
+    it172  chi2=   92.5565  worst=  1.4059  step=8.793e+00
+    it173  chi2=   78.8408  worst=  1.5179  step=7.528e+00
+    it174  chi2=   67.5327  worst=  1.4226  step=1.026e+01
+    it175  chi2=   78.4939  worst=  1.4218  step=8.921e+00
+    it176  chi2=   98.1496  worst=  1.7154  step=7.489e+00
+    it177  chi2=  107.2031  worst=  1.4840  step=9.407e+00
+    it178  chi2=   87.2193  worst=  1.3917  step=8.426e+00
+    it179  chi2=   67.9987  worst=  1.4691  step=8.036e+00
+    it180  chi2=   73.2981  worst=  1.4149  step=9.969e+00
+    it181  chi2=   82.7494  worst=  1.4979  step=8.313e+00
+    it182  chi2=   96.2881  worst=  1.6401  step=8.148e+00
+    it183  chi2=  111.1474  worst=  1.4934  step=9.101e+00
+    it184  chi2=   88.7049  worst=  1.4219  step=7.916e+00
+    it185  chi2=   63.7816  worst=  1.4201  step=8.991e+00
+    it186  chi2=   76.5061  worst=  1.3899  step=9.943e+00
+    it187  chi2=   92.6700  worst=  1.6401  step=7.729e+00
+    it188  chi2=   98.1654  worst=  1.5758  step=9.173e+00
+    it189  chi2=  106.5822  worst=  1.4716  step=9.013e+00
+    it190  chi2=   88.5005  worst=  1.4608  step=7.536e+00
+    it191  chi2=   65.0667  worst=  1.4172  step=1.000e+01
+    it192  chi2=   77.9809  worst=  1.3803  step=9.734e+00
+    it193  chi2=   99.6430  worst=  1.7385  step=7.361e+00
+    it194  chi2=  100.1817  worst=  1.5161  step=9.747e+00
+    it195  chi2=   94.1286  worst=  1.4127  step=8.830e+00
+    it196  chi2=   80.5317  worst=  1.5173  step=7.502e+00
+    it197  chi2=   66.9558  worst=  1.4226  step=1.030e+01
+    it198  chi2=   78.3740  worst=  1.4162  step=9.018e+00
+    it199  chi2=   98.6332  worst=  1.7252  step=7.442e+00
+    loop residual after : mean 0.8706  max 1.4877
+    odom residual after : mean 0.0897  max 0.3529
