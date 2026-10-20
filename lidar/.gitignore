@@ -1,0 +1,11 @@
+# 数据（体积大，不入库）
+data/
+*.bin
+*.zip
+
+# 运行产物
+results/
+__pycache__/
+*.pyc
+*.npy
+*.npz

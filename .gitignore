@@ -1,10 +1,14 @@
-﻿# 数据(请从 TUM 官网下载,不随仓库提供)
+# 数据(请从 TUM 官网下载,不随仓库提供)
 data/
 *.bag
 *.db3
 *.npz
 *.png
 *.jpg
+
+# 例外:README 引用的结果图需要入库
+!lidar/figures/
+!lidar/figures/*.png
 
 # Python
 __pycache__/

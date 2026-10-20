@@ -1,10 +1,15 @@
-# RGB-D 视觉里程计 / 回环检测 / 位姿图优化
+# RGB-D 视觉里程计 / 激光前端 / 回环检测 / 位姿图优化
 
-RGB-D SLAM 管线,在 TUM FR1 公开数据集上评测。不依赖 g2o / Ceres / GTSAM 等
+在 TUM FR1 公开数据集上评测的 SLAM 管线。不依赖 g2o / Ceres / GTSAM 等
 优化库:李群运算、光束法平差、位姿图优化、回环检测均在项目内自行实现。
 
-用到的数据集:TUM RGB-D Benchmark,`fr1/xyz`(798 帧)与 `fr1/desk`(613 帧)。
-数据不随仓库提供,请从 https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download 下载。
+主链路是 RGB-D 视觉前端(下文一至四)。`lidar/` 目录是**把前端换成点云**的扩展:
+从零实现 ICP / NDT / 点面几何 BA,在同一后端上验证"传感器前端可替换"的设计,
+并确定了 ICP 类方法的能力边界(KITTI 高速场景失效原因已定位)。
+
+用到的数据集:TUM RGB-D Benchmark `fr1/xyz`(798 帧)与 `fr1/desk`(613 帧);
+激光部分另用 KITTI raw `2011_09_26_drive_0001`(108 帧 Velodyne 点云)。
+数据不随仓库提供,详见各目录说明。
 
 ---
 
@@ -180,6 +185,34 @@ desk 上通过验证的那 1 个回环对,真实基线只有 0.0954 m,比 xyz �
 | `tum2bag.py` / `validate_bag.py` / `crosscheck_tf.py` | TUM 序列转 rosbag(纯 Python,不需要装 ROS)+ 字节级校验 |
 | `make_synth.py` | 合成序列生成(用于优化器测试) |
 | `README_slam3.md` | 回环 + 位姿图阶段的详细记录(含完整失败分析) |
+
+## 五之二、激光前端扩展（`lidar/`）
+
+同一套后端(`pose_graph.py`, 李群运算)可以接点云前端。`lidar/` 目录下是
+把视觉前端换成激光/点云前端的完整实现与实验记录。
+
+从零实现(不用 open3d / PCL): 点云体素下采样、KD-Tree 近邻、PCA 法向量、
+point-to-point / point-to-plane ICP、NDT、点面几何 BA。
+
+| 方案 | 序列 | 帧数 | ATE |
+|---|---|---|---|
+| 激光里程计 + 位姿图 | TUM fr1/desk | 400 | **9.66 cm** |
+| 激光里程计 + 回环 + 位姿图 | TUM fr1/desk | 596 | **39.44 cm**（较纯里程计 ↓14%） |
+| 激光里程计 | KITTI 0001 | 108 | 20.15 m（仅恢复 55% 位移） |
+| 激光 + 几何 BA | TUM fr1/desk | — | ❌ 三次尝试均未改善 |
+| *对照：本仓库视觉前端 + BA* | TUM fr1/desk | 613 | **11.87 cm** |
+
+三条判据(均有实验支撑):
+
+1. **帧间位移 / 特征尺度决定帧间配准可行性**。TUM 1.6cm → ICP 误差 0.86cm；
+   KITTI 190cm → 误差 181cm(仅恢复 9% 位移)。同一份代码，结论相反。
+2. **判断回环有效性前必须确认数据里有真回环**。fr1/desk 前 300 帧轨迹不闭合，
+   加回环 ATE 从 32.87 变差到 41.49；改用完整 596 帧后才有改善。
+3. **残差类型决定后端能否消除漂移**。视觉重投影是绝对约束(像素坐标)，
+   激光点面是相对约束(法向距离)，后者允许位姿与地图点一起漂移。
+
+详见 [`lidar/README.md`](lidar/README.md)、[`lidar/RESULTS.md`](lidar/RESULTS.md)、
+[`lidar/BA_RESULTS.md`](lidar/BA_RESULTS.md)。
 
 ## 七、复现
 
